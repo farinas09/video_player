@@ -1,0 +1,21 @@
+@import '../Vars.scss';
+
+.footer {
+    align-items: center;
+    background-color: $main-color;
+    display: flex;
+    height: 100px;
+    width: 100%;
+  }
+  
+  .footer a {
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    padding-left: 30px;
+    text-decoration: none;
+  }
+  
+  .footer a:hover {
+    text-decoration: underline;
+  }
