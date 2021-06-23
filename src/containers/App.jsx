@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import Search from "../components/Search";
 import Categories from "../components/Categories";
@@ -6,53 +6,41 @@ import Carousel from "../components/Carousel";
 import CarouselItem from "../components/CarouselItem";
 import Footer from "../components/Footer";
 
-import '../assets/styles/App.scss';
+import "../assets/styles/App.scss";
 
 const App = () => {
-    const [videos, setVideos] = useState([]);
+  const [videos, setVideos] = useState([]);
 
-    useEffect(() => {
-        fetch('http://localhost:3000/initialState')
-            .then(res=> res.json())
-            .then(data => setVideos(data))
-    }, []);
-    console.log(videos);
+  useEffect(() => {
+    fetch("http://localhost:3000/initialState")
+      .then((res) => res.json())
+      .then((data) => setVideos(data));
+  }, []);
 
   return (
     <div className="App">
       <Header />
       <Search />
-      <Categories title="Mi lista">
-        <Carousel>
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-        </Carousel>
-      </Categories>
+      {videos.myList?.length > 0 && 
+        <Categories title="Mi lista">
+          <Carousel>
+            <CarouselItem />
+          </Carousel>
+        </Categories>
+      }
+
       <Categories title="Tendencias">
         <Carousel>
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
+            { videos.trends?.map(item =>
+                    <CarouselItem key={item.id} {...item}/>
+            )}
         </Carousel>
       </Categories>
-      <Categories title="Originales">
+      <Categories title="Originals">
         <Carousel>
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
-          <CarouselItem />
+            { videos.originals?.map(item =>
+                    <CarouselItem key={item.id} {...item}/>
+            )}
         </Carousel>
       </Categories>
       <Footer />
