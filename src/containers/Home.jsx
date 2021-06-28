@@ -9,42 +9,39 @@ import useInitialState from "../hooks/useInitialState";
 
 import "../assets/styles/App.scss";
 
-const API = 'http://localhost:3000/initialState';
-
+const API = "http://localhost:3000/initialState";
 
 const Home = () => {
-    const initialState = useInitialState(API)
+  const initialState = useInitialState(API);
 
   return (
-    <div className="App">
-      <Header />
+    <>
       <Search />
-      {initialState.myList?.length > 0 && 
+      {initialState.myList?.length > 0 && (
         <Categories title="Mi lista">
           <Carousel>
-          { initialState.myList?.map(item =>
-                    <CarouselItem key={item.id} {...item}/>
-            )}
+            {initialState.myList?.map((item) => (
+              <CarouselItem key={item.id} {...item} />
+            ))}
           </Carousel>
         </Categories>
-      }
+      )}
 
       <Categories title="Tendencias">
         <Carousel>
-            { initialState.trends?.map(item =>
-                    <CarouselItem key={item.id} {...item}/>
-            )}
+          {initialState.trends?.map((item) => (
+            <CarouselItem key={item.id} {...item} />
+          ))}
         </Carousel>
       </Categories>
       <Categories title="Originals">
         <Carousel>
-            { initialState.originals?.map(item =>
-                    <CarouselItem key={item.id} {...item}/>
-            )}
+          {initialState.originals?.map((item) => (
+            <CarouselItem key={item.id} {...item} />
+          ))}
         </Carousel>
       </Categories>
-      <Footer />
-    </div>
+    </>
   );
 };
 
