@@ -8,7 +8,7 @@ import reducer from "./reducers/index";
 const initialState = {
   user: {},
   playing: {},
-  mylist: [],
+  myList: [],
   trends: [
     {
       id: 2,
