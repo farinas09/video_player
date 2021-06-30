@@ -27,6 +27,14 @@ const reducer = (state, action) => {
         ...state,
         user: {},
       };
+    case "GET_VIDEO_SRC":
+      return {
+        ...state,
+        playing:
+          state.trends.find((item) => item.id === Number(action.payload)) ||
+          state.originals.find((item) => item.id === Number(action.payload)) ||
+          [],
+      };
     default:
       return state;
   }

@@ -22,3 +22,8 @@ export const logoutRequest = (payload) => ({
   type: "LOGOUT_REQUEST",
   payload,
 });
+
+export const getVideoSrc = (payload) => ({
+  type: "GET_VIDEO_SRC",
+  payload,
+});
