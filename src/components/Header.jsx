@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import PropTypes from "prop-types";
 import { logoutRequest } from "../actions";
 import gravatar from "../utils/gravatar";
 import "../assets/styles/components/Header.scss";
@@ -62,6 +63,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   logoutRequest,
+};
+
+Header.propTypes = {
+  user: PropTypes.object.isRequired,
+  logoutRequest: PropTypes.any.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);
