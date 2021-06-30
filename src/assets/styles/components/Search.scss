@@ -1,29 +1,28 @@
 .main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 200px;
-    border-radius: 0px 0px 40px 40px;
-  }
-  
-  .main__title {
-    color: white;
-    font-size: 25px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 200px;
+  border-radius: 0px 0px 40px 40px;
+}
 
-  .input {
-  background-color: rgba(0,0,0,0.1);
+.main__title {
+  color: white;
+  font-size: 25px;
+}
+
+.input {
+  background-color: rgba(0, 0, 0, 0.1);
   border: 0px solid white;
   border-radius: 25px;
   color: white;
-  font-family: 'Muli', sans-serif;
+  font-family: "Muli", sans-serif;
   font-size: 16px;
   height: 50px;
   margin-bottom: 20px;
   outline: none;
   padding: 0px 20px;
-  width: 60%;
 }
 
 ::placeholder {
